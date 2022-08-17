@@ -29,6 +29,9 @@ dependencies {
 
     implementation "org.mindrot:jbcrypt:0.4"
 
+    implementation 'net.coobird:thumbnailator:0.4.8'
+
+
     //토큰 발행
     implementation "com.auth0:java-jwt:3.8.1"
 
