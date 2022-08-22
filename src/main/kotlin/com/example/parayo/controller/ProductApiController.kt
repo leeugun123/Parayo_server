@@ -40,9 +40,10 @@ class ProductApiController @Autowired constructor(
         @RequestParam productId: Long,
         @RequestParam(required = false) categoryId: Int?,
         @RequestParam direction : String,
+        @RequestParam (required = false) keyword: String?,
         @RequestParam(required =  false) limit : Int?
         ) = productService
-            .search(categoryId,productId,direction,limit ?: 10)
+            .search(categoryId,productId,direction,keyword,limit ?: 10)
         .mapNotNull(Product::toProductListItemResponse)
         .let { ApiResponse.ok(it) }
 
@@ -50,6 +51,6 @@ class ProductApiController @Autowired constructor(
     fun get(@PathVariable id : Long) = productService.get(id)?.let {
         ApiResponse.ok(it.toProductResponse())
     } ?: throw ParayoException("상품 정보를 찾을 수 없습니다.")
-    
+
 
 }
