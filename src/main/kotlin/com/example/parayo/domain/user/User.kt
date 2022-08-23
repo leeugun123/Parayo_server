@@ -9,5 +9,6 @@ import javax.persistence.*
 class User (
     var email: String,
     var password : String,
-    var name : String) : BaseEntity(){
+    var name : String,
+    var fcmToken : String?) : BaseEntity(){
 }

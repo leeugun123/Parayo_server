@@ -64,7 +64,7 @@ constructor(
 
             val hashedPassword = BCrypt.hashpw(password,BCrypt.gensalt())
             //비밀번호를 해싱하여 저장
-            val user = User(email,hashedPassword,name)
+            val user = User(email,hashedPassword,name,fcmToken)
             userRepository.save(user)
 
         }
